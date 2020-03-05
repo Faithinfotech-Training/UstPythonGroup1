@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<div id="header"><p id="nm">Modify<p>
+</div>
+<form action="" method="POST" novalidate>
+    {{form.hidden_tag()}}
+    <fieldset>
+    <p>
+    {{form.b_id.label}}{{form.b_id(size=32,autofocus=True)}}
+    {% for error in form.b_id.errors %}
+        <span style="color:red;">{{error}}</span>
+    {% endfor %}
+    </p>
+    <p>
+    {{form.start_date.label}}{{form.start_date(size=32)}}
+    </p>
+    <p>
+    {{form.end_date.label}}{{form.end_date(size=32)}}
+    </p>
+    <p>
+    {{form.b_status.label}}{{form.b_status}}
+    </p>
+    <p>{{form.submit()}}</p>
+    </fieldset>
+    <p><a href="{{url_for('menu')}}">Back to menu</a></p>    
+</form>
+{% endblock %}
