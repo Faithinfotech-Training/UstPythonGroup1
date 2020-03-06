@@ -56,7 +56,10 @@ def update_course(a):
             flash("Please enter valid fee")
             return render_template("update_course.html",form=form,course=course)
         if form.status.data!="":values["status"]=form.status.data   
-        if form.duration.data!="":values["duration"]=form.duration.data
+        if form.duration.data!="" and form.duration.data>0:values["duration"]=form.duration77.data
+        else:
+            flash("Please enter valid fee")
+            return render_template("update_course.html",form=form,course=course)
         if form.status.data!="":values["status"]=form.status.data
         new_data={"$set":values}
         query={"_c_id":a}
