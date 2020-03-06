@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<fieldset>
+<legend>Display Employees</legend>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Photo</th>
+        <th>Address</th>
+        <th>Previouscourse</th>
+        <th>Enquiry ID</th>
+    <tr>
+    {% for admission in admission %}
+        <tr>
+            <td>{{admission._id}}</td>
+            <td>{{admission.photo}}</td>
+            <td>{{admission.address}}</td>
+            <td>{{admission.previouscourse}}</td>
+            <td>{{admission.eq_id}}</td>
+        <tr>
+    {% endfor %}
+</table>
+</fieldset>
+<p><a href="{{url_for('menu')}}">Back to menu</a></p>
+{% endblock %}        
