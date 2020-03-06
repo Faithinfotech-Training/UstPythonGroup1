@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html>
 <head>
 
@@ -27,3 +28,29 @@
     </body>
  </html>
 
+=======
+<html lang="en">
+    <head>
+        <link rel='stylesheet' href='/static/css/login.css'>
+        <title>
+        {% if title%}
+        {{title}}
+        {%else%}
+        Welcome to FlaskTest
+        {% endif %}
+        </title>
+      </head>
+        <body>
+         {% with messages=get_flashed_messages() %}
+            {% if messages %}
+            <ul>
+            {% for message in messages %}
+            <li>{{message}}</li>
+            {% endfor %}
+            </ul>
+            {% endif %}
+            {% endwith %}
+            {% block content %}{% endblock %}
+            </body>
+            </html>
+>>>>>>> 548eb1300e9bda6350a3f83fa5f53265e7b61b3d
