@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block content %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+  
+    
+
+
+
+    
+    <h2>Display resource</h2>
+    <table class="table table-classic">
+    
+        <tr>
+            
+            <th>Name</th>
+            <th>Capacity</th>
+            <th>Rent</th>
+            <th>Status</th>
+            <th>Type of use</th>
+            
+        </tr>
+        {% for resource in resources %}
+            <tr>
+                
+                <td>{{resource.name}}</td>
+                 <td>{{resource.capacity}}</td>
+                <td>{{resource.rent}}</td>
+                <td>{{resource.status}}</td>
+                <td>{{resource.typeofuse}}</td>
+                <td><a href="{{url_for('modify_resource',a=resource._id)}}">Modify Resource</a></td>
+                
+              </tr>
+         {% endfor %}
+      </table>
+     
+    <tr><td></td>
+        <td><a href="{{url_for('add_resource')}}">Add Resource</td> 
+</tr>
+
+      
+</table>
+     
+                 
+                
+    
+    
+    
+{% endblock %}     
