@@ -2,36 +2,28 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>
-            {% if title %}
-                {{title}}
-            {% else %}
-                 welcome to resource
-            {% endif %}
+           <meta name="viewport" content="width=device-width,initial-scale=1.0">
             
-            </title>         
-        <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        
-        
-        <link rel='icon' href='static/images/f.png'>
-        
-        </head>
-        <body>
-           {% with messages=get_flashed_messages() %}
-               {% if messages %}
-               <ul>
-               {% for message in messages %}
-                  <li>{{message}}</li>
-               {% endfor %}
-               </ul>
-               {% endif %}
-            {% endwith %}      
-
-          {% block content %}{% endblock %} 
-           
-           
-           
-         
-             
-        </body>
-       </html>     
+            <title>
+                {% if title%}
+                     {{title}}
+                {% else %}
+                     Welcome to Flask Test
+                {% endif %}
+    
+            </title>
+ 
+    </head>
+    <body>
+       {% with messages=get_flashed_messages() %}
+            {% if messages %}
+            <ul>
+            {% for message in messages %}
+                <li>{{message}}</li>
+            {% endfor %}
+            <ul>
+            {% endif %}
+      {% endwith %}
+      {% block content %} {%endblock %}
+    </body>
+    </html>
