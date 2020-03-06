@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootclass="table table-dark"strap/4.4.1/js/bootstrap.min.js">
+</script>
+
+<form action="" method="POST" novalidate class="form-row">
+    {{form.hidden_tag()}}
+    <fieldset>
+    <legend>Modify Batch</legend>
+    <table class="table table-light">
+        <tr>
+            <th> {{form.batch_name.label}}</th>
+                <td>{{form.batch_name(size=32,value=batch.batch_name)}}</td>
+            
+         </tr>
+    <tr>
+       <th> {{form.start_date.label}}</th>
+           <td>{{form.start_date(size=32,value=batch.start_date)}}</td>
+       
+    </tr>
+        <tr>
+        <th>{{form.end_date.label}}</th>
+          <td> {{form.end_date(size=32,value=batch.end_date)}}</td>
+          
+        </tr>
+        <tr>
+    <th>{{form.status.label}}</th>
+       <td> {{form.status(value=batch.status)}}</td>
+       
+        </tr>
+    
+    <tr><td></td>
+       <td> {{form.submit()}}</td>
+       </tr>
+    </table>
+    </fieldset>
+    
+</form>
+{% endblock %}
+
