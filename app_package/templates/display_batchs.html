@@ -1,15 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-  
-<div id="header"><p id="nm">Batch Details<p>
-</div>
-<fieldset>
 
-        <table class="table table-classic">
+<table class="table table-dark">
     <tr>
         <th>Batch Id</th>
         <th>Batch Name</th>
@@ -17,18 +9,20 @@
         <th>End Date</th>
         <th>Course Id</th>
         <th>Status</th>
+        <th>Edit</th>
    </tr>
    {% for batch in batchs %}
         <tr>
             <td>{{batch._id}}</td>
-            <td>{{batch.b_name}}</td>
+            <td>{{batch.batch_name}}</td>
             <td>{{batch.start_date}}</td>
             <td>{{batch.end_date}}</td>
-            <td>{{batch.c_id}}</td>
+            <td>{{batch.course_id}}</td>
             <td>{{batch.b_status}}</td>
+            <td><a href="{{url_for('modify_batch', a=batch._id)}}">Update</a></td>
         </tr>
     {% endfor %}
 </table>
-</fieldset>
-<p><a href="{{url_for('menu')}}">Back to menu</a></p>
+
+<p><a href="{{url_for('add_batch')}}">Add Batch</a></p>
 {% endblock %}

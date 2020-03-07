@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <div class="row">
+            <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+<h1><center>Display Enquiries</center></h1>
+<table class="table table-dark" style="width: 600px; margin:auto;">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Qualification</th>
+        <th>Phone</th>
+        <th>Year of passout</th>
+        <th>Email</th>
+        <th>Course</th>
+        <th>Source</th>
+        <th>Status</th>
+        <th>Update Status</th>
+
+   </tr>
+   {% for enquiry in enquiries %}
+        <tr>
+            <td>{{enquiry._id}}</td>
+            <td>{{enquiry.name}}</td>
+            <td>{{enquiry.age}}</td>
+            <td>{{enquiry.qualification}}</td>
+            <td>{{enquiry.phone}}</td>
+            <td>{{enquiry.passout_year}}</td>
+            <td>{{enquiry.email}}</td>
+            <td>{{enquiry.course}}</td>
+            <td>{{enquiry.source_of_lead}}</td>
+            <td>{{enquiry.status}}</td>
+            <td><a href="{{url_for('searchenquiry',e_id=enquiry._id)}}">Edit</a></td>
+        </tr>
+    {% endfor %}
+</table>
+<p><a href="{{url_for('menu')}}">Back to home</a></p>
+</div>
+</div>
+</div>
+{% endblock %}

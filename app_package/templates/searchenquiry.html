@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container">
+        <div class="row">
+                <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+    <form action="" method="POST" novalidate>
+         {{form.hidden_tag()}}
+        <h1><center>Search Enquiry</center></h1>
+        <table class="table table-dark" style="width: 600px; margin:auto;">
+
+        <tr><td>EnquiryId :</td><td>{{data._id}}</td></tr> 
+        <tr><td>Name :</td><td> {{data.name}}</td></tr>
+        <tr>
+            <td>
+            {{form.age.label}}
+            </td>
+            <td>
+            {{form.age(size=32,value=data.age)}}
+            {% for error in form.age.errors %}
+                <span style="color:red;">{{error}}</span>
+            {% endfor %}
+            </td>
+            </tr>
+
+        <tr>
+            <td>
+                    {{form.qualification.label}}
+                    <td>
+                            {{form.qualification(value=data.qualification)}}
+                            {% for error in form.qualification.errors %}
+                                <span style="color:red;">{{error}}</span>
+                            {% endfor %}
+                    </td>
+            </td>
+        </tr>
+            
+        <tr>
+                <td>
+                    {{form.phone.label}}
+                </td>
+                <td>
+                     {{form.phone(size=32,value=data.phone)}}
+                        {% for error in form.phone.errors %}
+                            <span style="color:red;">{{error}}</span>
+                        {% endfor %}
+                    </td>
+               
+        </tr>
+            
+        <tr>
+                <td>
+                        {{form.passout_year.label}}
+
+                </td>
+                <td>
+                        {{form.passout_year(size=32,value=data.passout_year)}}
+                        {% for error in form.passout_year.errors %}
+                            <span style="color:red;">{{error}}</span>
+                        {% endfor %}
+                </td>    
+            </tr>
+               
+
+        <tr>
+            <td>
+                {{form.email.label}}
+            </td>
+            <td>
+                {{form.email(size=32,value=data.email)}}
+                {% for error in form.email.errors %}
+                    <span style="color:red;">{{error}}</span>
+                {% endfor %}
+            </td>
+        </tr>
+            
+        <tr>
+            <td>
+             {{form.course.label}}
+            </td>
+            <td>
+            {{form.course(value=data.course)}}
+            {% for error in form.course.errors %}
+                    <span style="color:red;">{{error}}</span>
+            {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                    {{form.status.label}}
+            </td>
+            <td>
+                    {{form.status(value=data.status)}}
+                    {% for error in form.status.errors %}
+                        <span style="color:red;">{{error}}</span>
+                    {% endfor %}
+            </td>
+                
+        </tr>
+            
+    <tr>
+        <td>
+            <a href="{{url_for('menu')}}">Back to Home</a>
+        </td>
+    </tr>
+        <tr>
+        <td>
+            {{form.submit()}}
+        </td>
+    </tr>
+        </table>
+        </form>
+        </div>
+        </div>
+        </div>
+{% endblock %}
+            

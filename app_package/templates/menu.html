@@ -1,15 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
-<div id="hd"><p id="ne">Batch Management<p>
-</div>
-<style>
 
-</style>
-<div class="topnav">
 
-<a href="{{url_for('add_batch')}}">Add Batch</a>
-<a href="{{url_for('display_batchs')}}">Display Batches</a>
-<a href="{{url_for('modify_batch')}}">Modify Batch</a>
+<a href="{{url_for('viewcourses')}}">Course Management</a>
+<a href="{{url_for('display_batchs')}}">Batch Management</a>
+<a href="{{url_for('display_resources')}}">Resource Management</a>
+<a href="{{url_for('enquiry')}}">Enquiry Management</a>
 
-</div>
 {% endblock %}
+

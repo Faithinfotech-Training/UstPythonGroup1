@@ -1,27 +1,27 @@
 {% extends "base.html" %}
 {% block content %}
-<div id="header"><p id="nm">Modify<p>
-</div>
-<form action="" method="POST" novalidate>
-    {{form.hidden_tag()}}
-    <fieldset>
-    <p>
-    {{form.b_id.label}}{{form.b_id(size=32,autofocus=True)}}
-    {% for error in form.b_id.errors %}
-        <span style="color:red;">{{error}}</span>
-    {% endfor %}
-    </p>
-    <p>
-    {{form.start_date.label}}{{form.start_date(size=32)}}
-    </p>
-    <p>
-    {{form.end_date.label}}{{form.end_date(size=32)}}
-    </p>
-    <p>
-    {{form.b_status.label}}{{form.b_status}}
-    </p>
-    <p>{{form.submit()}}</p>
-    </fieldset>
-    <p><a href="{{url_for('menu')}}">Back to menu</a></p>    
+<div class="container">
+        <div class="row">
+                <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+    <form action="" method="POST" novalidate>
+         {{form.hidden_tag()}}
+        <h1><center>Update</center></h1>
+        <table class="table table-dark" style="width: 600px; margin:auto;">
+   
+    <tr>
+    <td>{{form.start_date.label}}</td><td>{{form.start_date(value=batch.start_date)}}
+    </td></tr>
+    <tr>
+   <td> {{form.end_date.label}}</td><td>{{form.end_date(value=batch.end_date)}}
+   </td></tr>
+    <tr>
+    <td>
+    {{form.b_status.label}}</td><td>{{form.b_status}}</td></tr>
+    <tr>
+    <td>{{form.submit()}}</td></tr>
+   
+    <p><a href="{{url_for('display_batchs')}}">Back to menu</a></p>   
 </form>
 {% endblock %}
+
+	

@@ -1,0 +1,35 @@
+{%extends "base.html"%}
+{%block content%}
+
+     
+<table class="table table-dark">
+    
+            <th> ID</th>
+            <th> Name</th>
+            <th>Capacity</th>
+            <th> Rent</th>
+            <th>Status</th>
+            <th>Type of use</th>
+            <th>Edit</th>
+            
+          
+       </tr>
+       {% for resource in resources %}
+       <tr>
+       
+            <td>{{resource._id}}</td>
+            <td>{{resource.res_name}}</td>
+            <td>{{resource.res_capacity}}</td>
+            <td>{{resource.res_rent}}</td>
+            <td>{{resource.res_status}}</td>
+            <td>{{resource.type_of_use}}</td>
+            <th><a href="{{url_for('update_resource',a=resource._id)}}">Update </a></th>
+          
+        </tr>
+
+        {% endfor %}
+</table>
+  
+        <p><a  href="{{url_for('add_resource')}}">Add a Resource</a></p>
+     
+    {% endblock %}
