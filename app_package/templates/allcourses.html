@@ -11,8 +11,16 @@
         <th>Course Duration (in weeks)</th>
         <th>Course Status</th>
         <th>Course Description</th>
+<<<<<<< HEAD
+        <th>name</th> 
+        <th>Edit</th>
+=======
         <th>Action</th>
+<<<<<<< HEAD
         <th>Action</th>
+=======
+>>>>>>> db04a35a26c5e625cd73baab440c01e4fe918cc2
+>>>>>>> a4a6fb84d826065792b51efce2e498fce5a0b55e
     </tr>
     {% for course in courses  %}
     <tr>
@@ -22,8 +30,13 @@
         <td>{{course.courseDuration}}</td>
         <td>{{course.courseStatus}}</td>
         <td>{{course.courseDescription}}</td>
+<<<<<<< HEAD
         <td><a href="{{url_for('modifycourse',a=course._id)}}">Update</a></td>
         <td><a href="{{url_for('addqualification')}}">Add Qualification</a></td>
+=======
+        <td>{{course.name}}</td>
+        <td><a href="{{url_for('modifycourse',a=course._id)}}">Edit</a></td>
+>>>>>>> a4a6fb84d826065792b51efce2e498fce5a0b55e
     </tr>
     {% endfor %}
    
