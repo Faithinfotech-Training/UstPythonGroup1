@@ -1,7 +1,7 @@
 from flask import render_template,flash,redirect,url_for
 from app_package import app,db,mongo
 #from flask_login import current_user,login_user,logout_user,login_required
-from app_package.course_forms import AddCourseForm,ModifyCourseForm
+from app_package.course_forms import AddCourseForm,ModifyCourseForm,AddQualificationForm
 
 check=True    
 co_id=0
@@ -71,4 +71,3 @@ def viewcourses():
     courses=course_col.find()
    
     return render_template("allcourses.html",courses=courses)
-
