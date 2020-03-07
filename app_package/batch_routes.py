@@ -12,9 +12,23 @@ def index():
 def add_batch():
     global check,batch_id
     form=AddBatchForm()
+    course_col=mongo.db.courses
+    cour=course_col.find()
+    lst=[]
+    for i in cour:
+       lst.append((i["courseName"],i["courseName"]))
+    form.course_name.choices=lst
+    res_col=mongo.db.resources
+    res=res_col.find()
+    lst=[]
+    for i in res:
+        lst.append((i["res_name"],i["res_name"]))
+      
+    form.res_name.choices=lst
     if form.validate_on_submit():
-        fields=["_id","batch_name","start_date","end_date","course_id","status"]
+        fields=["_id","batch_name","start_date","end_date","course_name","res_name","status"]
         batch_col=mongo.db.batches
+        
         if check:
                 check=False
                 if batch_col.count()==0: 
@@ -24,7 +38,7 @@ def add_batch():
                     tmp=batch.next()
                     batch_id=tmp["_id"]
         batch_id+=1
-        values=[batch_id,form.batch_name.data,form.start_date.data,form.end_date.data,form.course_id.data,form.status.data]
+        values=[batch_id,form.batch_name.data,form.start_date.data,form.end_date.data,form.course_name.data,form.res_name.data,form.status.data]
         batch=dict(zip(fields,values))
 
         if form.start_date.data>form.end_date.data:
