@@ -11,7 +11,12 @@
         <th>Course Duration (in weeks)</th>
         <th>Course Status</th>
         <th>Course Description</th>
+<<<<<<< HEAD
+        <th>name</th> 
+        <th>Edit</th>
+=======
         <th>Action</th>
+>>>>>>> db04a35a26c5e625cd73baab440c01e4fe918cc2
     </tr>
     {% for course in courses  %}
     <tr>
@@ -22,6 +27,7 @@
         <td>{{course.courseDuration}}</td>
         <td>{{course.courseStatus}}</td>
         <td>{{course.courseDescription}}</td>
+        <td>{{course.name}}</td>
         <td><a href="{{url_for('modifycourse',a=course._id)}}">Edit</a></td>
     </tr>
     {% endfor %}

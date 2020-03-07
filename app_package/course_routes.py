@@ -10,8 +10,17 @@ def addcourse():
     global co_id
     global check
     form=AddCourseForm()
+    m_col=mongo.db.modules
+    mod=m_col.find()
+    lst=[]
+    for i in mod:
+        lst.append((i["name"],i["name"]))
+
+
+    form.name.choices=lst
+    
     if form.validate_on_submit():
-        fields=["_id","courseName","courseDuration","courseFee","courseStatus","courseDescription"]
+        fields=["_id","courseName","courseDuration","courseFee","courseStatus","courseDescription","name"]
         course_col=mongo.db.courses
         if check:
             check=False
@@ -22,7 +31,7 @@ def addcourse():
                 tmp=cou.next()
                 co_id=tmp["_id"]
         co_id+=1
-        values=[co_id,form.courseName.data,form.courseDuration.data,form.courseFee.data,form.courseStatus.data,form.courseDescription.data]
+        values=[co_id,form.courseName.data,form.courseDuration.data,form.courseFee.data,form.courseStatus.data,form.courseDescription.data,form.name.data]
         course=course_col.find_one({"courseName":form.courseName.data})
         if not bool(course):
             course=dict(zip(fields,values))
