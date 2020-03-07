@@ -11,4 +11,8 @@ db=SQLAlchemy(app)
 migrate=Migrate(app,db)
 mongo=PyMongo(app)
 
+<<<<<<< HEAD
+from app_package import resource_routes,batch_routes,course_routes,routes,enquiry_routes,qualification_routes
+=======
 from app_package import resource_routes,batch_routes,course_routes,routes,enquiry_routes,moduleroutes
+>>>>>>> a4a6fb84d826065792b51efce2e498fce5a0b55e

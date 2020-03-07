@@ -8,7 +8,7 @@ class AddResourceForm(FlaskForm):
     res_name=StringField("ResourceName:",validators=[DataRequired()])
     res_capacity=IntegerField("ResourceCapacity:",validators=[DataRequired(),NumberRange(min=0)])
     res_rent=IntegerField("ResourceRent:", validators=[DataRequired(),NumberRange(min=0)])
-    res_status=SelectField('Status', choices = [('Avilable','Avilable'),('NotAvilable','NotAvilable')])
+    res_status=SelectField('Status', choices = [('Available','Available'),('NotAvailable','NotAvailable')])
     type_of_use=SelectField('Type of Use', choices = [('Seminar','Seminar'),('Practical','Practical'),('Lab','Lab')])
     submit=SubmitField("Add Resource",validators=[DataRequired()])
 

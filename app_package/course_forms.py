@@ -23,3 +23,6 @@ class ModifyCourseForm(FlaskForm):
     courseStatus=SelectField("CourseStatus: ",choices=[("Active","Active"),("Inactive","Inactive")])
     submit=SubmitField("Update Course")
 
+class AddQualificationForm(FlaskForm):
+    qualificationName=StringField("Qualification: ",validators=[DataRequired(message="Enter valid data")])
+    submit=SubmitField("ADD")

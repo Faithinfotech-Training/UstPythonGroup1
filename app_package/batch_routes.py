@@ -22,7 +22,8 @@ def add_batch():
     res=res_col.find()
     lst=[]
     for i in res:
-        lst.append((i["res_name"],i["res_name"]))
+        if i["res_status"]=="Available":
+            lst.append((i["res_name"],i["res_name"]))
       
     form.res_name.choices=lst
     if form.validate_on_submit():
