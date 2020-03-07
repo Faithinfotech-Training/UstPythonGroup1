@@ -12,9 +12,16 @@ def index():
 def add_batch():
     global check,batch_id
     form=AddBatchForm()
+    course_col=mongo.db.courses
+    cour=course_col.find()
+    lst=[]
+    for i in cour:
+       lst.append((i["courseName"],i["courseName"]))
+    form.course_id.choices=lst
     if form.validate_on_submit():
         fields=["_id","batch_name","start_date","end_date","course_id","status"]
         batch_col=mongo.db.batches
+        
         if check:
                 check=False
                 if batch_col.count()==0: 
