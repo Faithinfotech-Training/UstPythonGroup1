@@ -52,6 +52,13 @@
             {% endfor %}</td>
 </tr>
 <tr>
+    <td> {{form.name.label}}</td>
+    <td>{{form.name}}
+            {% for error in form.name.errors %}
+                <span style="color:red;">{{error}}</span>
+            {% endfor %}</td>
+</tr>
+<tr>
     <td>{{form.submit()}}</td>
 </tr>
 </table>

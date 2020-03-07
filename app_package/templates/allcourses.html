@@ -11,6 +11,7 @@
         <th>Course Duration (in weeks)</th>
         <th>Course Status</th>
         <th>Course Description</th>
+        <th>name</th> 
         <th>Edit</th>
     </tr>
     {% for course in courses  %}
@@ -22,6 +23,7 @@
         <td>{{course.courseDuration}}</td>
         <td>{{course.courseStatus}}</td>
         <td>{{course.courseDescription}}</td>
+        <td>{{course.name}}</td>
         <td><a href="{{url_for('modifycourse',a=course._id)}}">Edit</a></td>
     </tr>
     {% endfor %}

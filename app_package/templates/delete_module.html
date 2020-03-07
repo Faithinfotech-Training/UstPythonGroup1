@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<form action="" method="POST" novalidate>
+    {{form.hidden_tag()}}
+    <fieldset>
+    <legend>Delete Module</legend>
+    <p>
+    {{form.name.label}}{{form.name(size=32,autofocus=True)}}
+     {% for error in form.name.errors %}
+        <span style="color:red;">{{error}}</span>
+    {% endfor %} 
+    </p>
+    
+    
+    <p>{{form.submit()}}</p>
+    </fieldset>
+    
+  </form>
+{% endblock %}  

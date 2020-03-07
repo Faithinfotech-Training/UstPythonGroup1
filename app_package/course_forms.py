@@ -9,6 +9,7 @@ class AddCourseForm(FlaskForm):
     courseFee=FloatField("Course Fee: ",validators=[DataRequired(message="Enter valid data"),NumberRange(min=10000)])
     courseDescription=StringField("CourseDescription: ",validators=[DataRequired(message="Enter valid data")])
     courseStatus=RadioField("CourseStatus: ",choices=[("Active","Active"),("Inactive","Inactive")])
+    name=SelectField("Module: ",choices=[])
     submit=SubmitField("Add Course")
    
 class ModifyCourseForm(FlaskForm):
@@ -17,5 +18,6 @@ class ModifyCourseForm(FlaskForm):
     courseDescription=StringField("CourseDescription: ",validators=[DataRequired(message="Enter valid data")])
     courseFee=FloatField("Course Fee: ",validators=[DataRequired(message="Enter valid data"),NumberRange(min=10000)])
     courseStatus=RadioField("CourseStatus: ",choices=[("Active","Active"),("Inactive","Inactive")])
+    name=SelectField("name: ",choices=[])
     submit=SubmitField("Update Course")
 
