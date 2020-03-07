@@ -1,20 +1,19 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, IntegerField, DateTimeField, SelectField, SubmitField
-from wtforms.validators import DataRequired
+from wtforms import StringField, IntegerField, SubmitField, DateTimeField, SelectField
+from wtforms.validators import DataRequired, EqualTo
 
-class AddBatchForm(FlaskForm):  		
-	batch_name=StringField("Batch Name: ",validators=[DataRequired()])
-	start_date=DateTimeField("Start date: ", validators=[DataRequired()])	
-	end_date=DateTimeField("End date: ", validators=[DataRequired()])
-	course_id=IntegerField("Course ID: ", validators=[DataRequired()])   
-	b_status=SelectField('Status: ', choices = [('Active','Active'),('Disabled','Disabled')])
-        #status=SelectField('Status: ', choices = [('Active','Active'),('Disabled','Disabled')])
-	submit=SubmitField("Submit")
+class AddBatchForm(FlaskForm):
+    batch_name=StringField("Batch Name: ",validators=[DataRequired()])
+    start_date=DateTimeField("Start Date: ", format='%Y-%m-%d', validators=[DataRequired()])
+    end_date=DateTimeField("End Date: ", format='%Y-%m-%d',validators=[DataRequired()])
+    course_id=StringField("Course : ",validators=[DataRequired()])
+    status=SelectField("Status : ",choices=[('Active','Active'),('Inactive','Inactive')])
+    submit=SubmitField("Add Batch")
+    
 
 class ModifyBatchForm(FlaskForm):
-   
-    start_date=DateTimeField("Start Date: ")
-    end_date=DateTimeField("End Date: ")
-    b_status=SelectField('Status: ', choices = [('Active','Active'),('Disabled','Disabled')])
-    submit=SubmitField("Update")
-    
+    batch_name=StringField("Batch Name: ")
+    start_date=DateTimeField("Start Date: ", format='%Y-%m-%d')
+    end_date=DateTimeField("End Date: ", format='%Y-%m-%d')
+    status=SelectField("Status : ",choices=[('Active','Active'),('Inactive','Inactive')])
+    submit=SubmitField("Modify Batch")
