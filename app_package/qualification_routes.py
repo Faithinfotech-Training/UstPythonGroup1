@@ -50,3 +50,11 @@ def viewqualification():
     qualifications=qualification_col.find()
    
     return render_template("viewqualification.html",qualifications=qualifications)
+@app.route("/delete/<int:a>",methods=["GET","POST"])
+def delete(a):
+        qualification_col=mongo.db.qualifications
+        query={"_id":a}
+        qualification_col.delete_one(query)
+        flash("Employee deleted")
+        return redirect(url_for("viewqualification"))
+    

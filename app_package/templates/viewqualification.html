@@ -7,6 +7,7 @@
     <tr>
         
         <th>Qualification Name</th>
+        <th>Action</th>
        
         
     </tr>
@@ -16,12 +17,12 @@
         
         <td>{{qualification.qualificationName}}</td>
         
-       
+        <td><a href="{{url_for('delete',a=qualification._id)}}">Delete</a></td>
         
     </tr>
     {% endfor %}
    
 
 </table>
-<p><a href="{{url_for('allcourses')}}">Back</a></p>
+
 {% endblock %}
