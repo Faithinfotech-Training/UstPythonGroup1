@@ -38,7 +38,7 @@ def add_batch():
                     tmp=batch.next()
                     batch_id=tmp["_id"]
         batch_id+=1
-        values=[batch_id,form.batch_name.data,form.start_date.data,form.end_date.data,form.course_id.data,form.res_name.data,form.status.data]
+        values=[batch_id,form.batch_name.data,form.start_date.data,form.end_date.data,form.course_name.data,form.res_name.data,form.status.data]
         batch=dict(zip(fields,values))
 
         if form.start_date.data>form.end_date.data:
