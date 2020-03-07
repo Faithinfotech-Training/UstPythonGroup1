@@ -55,6 +55,6 @@ def delete(a):
         qualification_col=mongo.db.qualifications
         query={"_id":a}
         qualification_col.delete_one(query)
-        flash("Employee deleted")
+        flash("Qualification deleted")
         return redirect(url_for("viewqualification"))
     
