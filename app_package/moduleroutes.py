@@ -69,19 +69,16 @@ def modify_module(a):
     else:
         return render_template("modify_module.html",form=form,module=module)       
         
-@app.route("/delete_module",methods=["GET","POST"])
+@app.route("/delete_module/<int:a>",methods=["GET","POST"])
 
-def delete_module():
-    form=DeleteModuleForm()
-    if form.validate_on_submit():
+def delete_module(a):
+    
         m_col=mongo.db.modules
-        query={"name":form.name.data} 
+        query={"_id":a} 
         m_col.delete_one(query)
         flash("Module deleted")
         return redirect(url_for("menu"))
-    else:
-        return render_template("delete_module.html",form=form) 
-                                                   
+    
                                             
 @app.route("/display_module")
        

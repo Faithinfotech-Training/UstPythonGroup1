@@ -17,6 +17,8 @@
         <tr>
             
             <th>Name</th>
+            <th>Action</th>
+            <th>Action</th>
             
             
         </tr>
@@ -27,17 +29,22 @@
                  
                 <td><a href="{{url_for('modify_module',a=module._id)}}">Modify Module</a></td>
                 
-              </tr>
+             
+
+              
+                
+                <td>{{module.m_id}}</td>
+                 
+                <td><a href="{{url_for('delete_module',a=module._id)}}">Delete Module</a></td>
+                
+              </tr> 
          {% endfor %}
       </table>
      
     <tr><td></td>
         <td><a href="{{url_for('add_module')}}">Add Module</td> 
 </tr>
-   <tr><td></td>
-    <td><a href="{{url_for('delete_module')}}">Delete Module</td> 
-</tr>
-      
+   
       </fieldset>
      
                  

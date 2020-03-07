@@ -46,7 +46,7 @@
                         {{form.courseStatus.label}}
                  </td>
                  <td>
-                        {{form.courseStatus(size=32,value=course.coursestatus)}}
+                        {{form.courseStatus(value=course.coursestatus)}}
                         {% for error in form.courseStatus.errors %}
                             <span style="color:red;">{{error}}</span>
                         {% endfor %}
