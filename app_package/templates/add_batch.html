@@ -27,11 +27,17 @@
     {% endfor %}</td>
     </tr>
     <tr>
-    <td>{{form.course_id.label}}</td><td>{{form.course_id}}
-    {% for error in form.course_id.errors %}
+    <td>{{form.course_name.label}}</td><td>{{form.course_name}}
+    {% for error in form.course_name.errors %}
         <span style="color:red;">{{error}}</span>
     {% endfor %}</td>
     </tr>
+    <tr>
+        <td>{{form.res_name.label}}</td><td>{{form.res_name}}
+        {% for error in form.res_name.errors %}
+            <span style="color:red;">{{error}}</span>
+        {% endfor %}</td>
+        </tr>
      <tr>
     <td>{{form.status.label}}</td><td>{{form.status}}
     {% for error in form.status.errors %}

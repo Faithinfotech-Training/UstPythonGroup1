@@ -6,7 +6,8 @@ class AddBatchForm(FlaskForm):
     batch_name=StringField("Batch Name: ",validators=[DataRequired()])
     start_date=DateTimeField("Start Date: ", format='%Y-%m-%d', validators=[DataRequired()])
     end_date=DateTimeField("End Date: ", format='%Y-%m-%d',validators=[DataRequired()])
-    course_id=SelectField("Course : ",coerce=str)
+    course_name=SelectField("Course: ",choices=[])
+    res_name=SelectField("Resource: ",choices=[])
     status=SelectField("Status : ",choices=[('Active','Active'),('Inactive','Inactive')])
     submit=SubmitField("Add Batch")
     
